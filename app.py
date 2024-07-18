@@ -1,6 +1,9 @@
+
 import requests
 import os
+
 # Replace with your actual API key
+
 api_key = os.getenv("API_KEY")
 
 # The key is saved in WSL ubuntu under WeatherAPP environment variable 
@@ -77,7 +80,7 @@ if response.status_code == 200:
         else:
             print(f"Visibility is poor: {visibility} meters")
 
-    print(f"Temperature: {temperature}°C")
+    print(f"Temperature: {temperature:.2f}°C")
     print(f"Humidity: {humidity}%")
     print(f"Wind Speed: {wind_speed} m/s")
 else:
