@@ -1,7 +1,9 @@
 import requests
-
+import os
 # Replace with your actual API key
-api_key = "12a98220f3c74d99ddebd0de42d047a7"
+api_key = os.getenv("API_KEY")
+
+# The key is saved in WSL ubuntu under WeatherAPP environment variable 
 
 # Replace with the actual city name and country code
 city_name = "Kolkata"
