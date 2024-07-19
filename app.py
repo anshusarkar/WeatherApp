@@ -52,6 +52,7 @@ def fetch_weather(city_name):
         country = data['sys']['country']
         weather_description = data['weather'][0]['description']
         temperature = data['main']['temp'] - 273.15
+        temperature = format(temperature, ".2f")
         humidity = data['main']['humidity']
         wind_speed = data['wind']['speed']
         visibility = data.get('visibility', None)
