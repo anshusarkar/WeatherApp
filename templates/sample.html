@@ -6,9 +6,35 @@
     <title>Weather APP</title>
 </head>
 <body>
-    <h1>This is the initial html page for the flask based Weather-APP </h1> 
-    <script>
-        
-    </script>
+    <h1>This is the initial HTML page for the Flask-based Weather APP</h1>
+    <h1>based on the the data provided by Openweathermap</h1>
+    <h1>Select a Capital City of India </h1>
+    <form method="POST">
+        <label for="capitals">Choose a capital:</label>
+        <select id="capitals" name="capitals">
+            {% for capital in capitals %}
+            <option value="{{ capital }}" {% if selected_capital == capital %}selected{% endif %}>{{ capital }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if weather_data %}
+    <h2>Weather Information for {{ weather_data[0] }}</h2>
+    <p>Country: {{ weather_data[1] }}</p>
+    <p>Weather Description: {{ weather_data[4] }}</p>
+    <p>Temperature: {{ weather_data[5] }}°C</p>
+    <p>Humidity: {{ weather_data[6] }}%</p>
+    <p>Wind Speed: {{ weather_data[3] }} m/s</p>
+    {% if weather_data[2] is not none %}
+        {% if weather_data[2] >= 10000 %}
+        <p>Visibility is good: {{ weather_data[2] }} meters</p>
+        {% elif weather_data[2] >= 4000 %}
+        <p>Visibility is moderate: {{ weather_data[2] }} meters</p>
+        {% else %}
+        <p>Visibility is poor: {{ weather_data[2] }} meters</p>
+        {% endif %}
+    {% endif %}
+    {% endif %}
 </body>
 </html>

@@ -1,91 +1,75 @@
-
 import requests
 import os
+from flask import Flask, render_template, request
 
-# Replace with your actual API key
+app = Flask(__name__)
 
+# Load the API key from environment variables
 api_key = os.getenv("API_KEY")
 
-# The key is saved in WSL ubuntu under WeatherAPP environment variable 
+# List of Indian states and their capitals
+indian_states_and_capitals = {
+    'Andhra Pradesh': 'Amaravati',
+    'Arunachal Pradesh': 'Itanagar',
+    'Assam': 'Dispur',
+    'Bihar': 'Patna',
+    'Chhattisgarh': 'Raipur',
+    'Goa': 'Panaji',
+    'Gujarat': 'Gandhinagar',
+    'Haryana': 'Chandigarh',
+    'Himachal Pradesh': 'Shimla',
+    'Jharkhand': 'Ranchi',
+    'Karnataka': 'Bengaluru',
+    'Kerala': 'Thiruvananthapuram',
+    'Madhya Pradesh': 'Bhopal',
+    'Maharashtra': 'Mumbai',
+    'Manipur': 'Imphal',
+    'Meghalaya': 'Shillong',
+    'Mizoram': 'Aizawl',
+    'Nagaland': 'Kohima',
+    'Odisha': 'Bhubaneswar',
+    'Punjab': 'Chandigarh',
+    'Rajasthan': 'Jaipur',
+    'Sikkim': 'Gangtok',
+    'Tamil Nadu': 'Chennai',
+    'Telangana': 'Hyderabad',
+    'Tripura': 'Agartala',
+    'Uttar Pradesh': 'Lucknow',
+    'Uttarakhand': 'Dehradun',
+    'West Bengal': 'Kolkata'
+}
 
-# Replace with the actual city name and country code
-city_name = "Kolkata"
-country_code = "IN"
+capitals = list(indian_states_and_capitals.values())
 
-# indian_states_and_capitals = {
-#     'Andhra Pradesh': 'Amaravati',
-#     'Arunachal Pradesh': 'Itanagar',
-#     'Assam': 'Dispur',
-#     'Bihar': 'Patna',
-#     'Chhattisgarh': 'Raipur',
-#     'Goa': 'Panaji',
-#     'Gujarat': 'Gandhinagar',
-#     'Haryana': 'Chandigarh',
-#     'Himachal Pradesh': 'Shimla',
-#     'Jharkhand': 'Ranchi',
-#     'Karnataka': 'Bengaluru',
-#     'Kerala': 'Thiruvananthapuram',
-#     'Madhya Pradesh': 'Bhopal',
-#     'Maharashtra': 'Mumbai',
-#     'Manipur': 'Imphal',
-#     'Meghalaya': 'Shillong',
-#     'Mizoram': 'Aizawl',
-#     'Nagaland': 'Kohima',
-#     'Odisha': 'Bhubaneswar',
-#     'Punjab': 'Chandigarh',
-#     'Rajasthan': 'Jaipur',
-#     'Sikkim': 'Gangtok',
-#     'Tamil Nadu': 'Chennai',
-#     'Telangana': 'Hyderabad',
-#     'Tripura': 'Agartala',
-#     'Uttar Pradesh': 'Lucknow',
-#     'Uttarakhand': 'Dehradun',
-#     'West Bengal': 'Kolkata'
-# }
-
-
-
-# API endpoint with parameters
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name},{country_code}&appid={api_key}"
-
-# Make the GET request to the API
-response = requests.get(url)
-
-# Check if the request was successful
-if response.status_code == 200:
-    # Parse the JSON data
-    data = response.json()
-    # print(data)
-    city = data['name']
-    country = data['sys']['country']
-    weather_description = data['weather'][0]['description']
-    temperature = data['main']['temp'] - 273.15
-    humidity = data['main']['humidity']
-    wind_speed = data['wind']['speed']
-    visibility = data.get('visibility', None)  # Default to None if visibility is not present
+def fetch_weather(city_name):
+    country_code = "IN"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name},{country_code}&appid={api_key}"
     
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        city = data['name']
+        country = data['sys']['country']
+        weather_description = data['weather'][0]['description']
+        temperature = data['main']['temp'] - 273.15
+        humidity = data['main']['humidity']
+        wind_speed = data['wind']['speed']
+        visibility = data.get('visibility', None)
+        return city, country, visibility, wind_speed, weather_description, temperature, humidity
+    else:
+        return None, None, None, None, None, None, None
 
-
-
-    # Print the extracted information
-    print(f"City: {city}")
-    print(f"Country: {country}")
-    print(f"Weather Description: {weather_description}")
+@app.route('/', methods=['GET', 'POST'])
+def select_capital():
+    selected_capital = None
+    weather_data = None
     
-    if visibility is not None:
-        if visibility >= 10000:
-            print(f"Visibility is good: {visibility} meters")
-        elif 4000 <= visibility < 10000:
-            print(f"Visibility is moderate: {visibility} meters")
-        else:
-            print(f"Visibility is poor: {visibility} meters")
-
-    print(f"Temperature: {temperature:.2f}°C")
-    print(f"Humidity: {humidity}%")
-    print(f"Wind Speed: {wind_speed} m/s")
-else:
-    print(f"Failed to retrieve data: {response.status_code}")
-    print(response.text)  # Print the error message returned by the API
+    if request.method == 'POST':
+        selected_capital = request.form['capitals']
+        if selected_capital != None:
+            weather_data = fetch_weather(selected_capital)
     
+    return render_template('sample.html', capitals=capitals, selected_capital=selected_capital, weather_data=weather_data)
 
-print(data)
+if __name__ == '__main__':
+    app.run(debug=True, port=8080)
