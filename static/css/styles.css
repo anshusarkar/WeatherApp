@@ -1,0 +1,169 @@
+/* Define keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes buttonHover {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Apply animations */
+body {
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease-in-out;
+    position: relative; /* Ensure body can be used as a containing block for absolute positioning */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 4em;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 0.75em;
+    position: absolute;
+    top: 125px;
+    left: 20px;
+    animation: slideIn 1s ease-out;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 0.75em;
+    position: absolute;
+    top: 145px;
+    left: 20px;
+    animation: slideIn 1.2s ease-out;
+}
+
+h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.3em;
+    text-align: center; /* Center text inside its container */
+    animation: fadeIn 3s ease-out;
+}
+
+form {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    position: absolute; /* Position form absolutely */
+    top: 160px; /* Adjust top position as needed */
+    right: 20px; /* Position form 20px from the right */
+    display: flex;
+    align-items: center; /* Align items in the center vertically */
+    gap: 5px; /* Space between select and button */
+}
+
+label {
+    display: flex;
+    margin-bottom: 3px;
+    font-size: 1.2em;
+}
+
+select {
+    padding: 10px;
+    font-size: 1em;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease-in-out;
+    flex: 1; /* Allow the select element to take up available space */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1em;
+    transition: transform 0.2s;
+    animation: fadeIn 2s ease-in-out;
+}
+
+button:hover {
+    animation: buttonHover 0.2s forwards;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    animation: fadeIn 4s ease-in-out;
+    position: absolute; /* Position table absolutely */
+    bottom: 175px; /* Position table 20px from the bottom of the page */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1em;
+    margin: 5px 0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    label, select, button, p {
+        font-size: 1em;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    table {
+        max-width: 100%;
+    }
+}

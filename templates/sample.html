@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather APP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>This is the initial HTML page for the Flask-based Weather APP</h1>
-    <h1>based on the the data provided by Openweathermap</h1>
-    <h1>Select a Capital City of India </h1>
+    <h1>Weather APP</h1>
+    <h2>Based on data from OpenWeatherMap</h2>
+    <h3>Select from the 28 capital cities of India from each states</h3>>
     <form method="POST">
-        <label for="capitals">Choose a capital:</label>
+        <label for="capitals">Choose a capital : </label>
         <select id="capitals" name="capitals">
             {% for capital in capitals %}
             <option value="{{ capital }}" {% if selected_capital == capital %}selected{% endif %}>{{ capital }}</option>
@@ -18,23 +19,42 @@
         </select>
         <button type="submit">Submit</button>
     </form>
-
+    <h4>Selected capital-city is : {{ weather_data[0] }}</h4>
     {% if weather_data %}
-    <h2>Weather Information for {{ weather_data[0] }}</h2>
-    <p>Country: {{ weather_data[1] }}</p>
-    <p>Weather Description: {{ weather_data[4] }}</p>
-    <p>Temperature: {{ weather_data[5] }}°C</p>
-    <p>Humidity: {{ weather_data[6] }}%</p>
-    <p>Wind Speed: {{ weather_data[3] }} m/s</p>
-    {% if weather_data[2] is not none %}
-        {% if weather_data[2] >= 10000 %}
-        <p>Visibility is good: {{ weather_data[2] }} meters</p>
-        {% elif weather_data[2] >= 4000 %}
-        <p>Visibility is moderate: {{ weather_data[2] }} meters</p>
-        {% else %}
-        <p>Visibility is poor: {{ weather_data[2] }} meters</p>
+    <table>
+        <tr>
+            <th>Country</th>
+            <td>{{ weather_data[1] }}</td>
+        </tr>
+        <tr>
+            <th>Weather Description</th>
+            <td>{{ weather_data[4] }}</td>
+        </tr>
+        <tr>
+            <th>Temperature</th>
+            <td>{{ weather_data[5] }}°C</td>
+        </tr>
+        <tr>
+            <th>Humidity</th>
+            <td>{{ weather_data[6] }}%</td>
+        </tr>
+        <tr>
+            <th>Wind Speed</th>
+            <td>{{ weather_data[3] }} m/s</td>
+        </tr>
+        {% if weather_data[2] is not none %}
+            <tr>
+                <th>Visibility</th>
+                {% if weather_data[2] >= 10000 %}
+                <td>Visibility is good: {{ weather_data[2] }} meters</td>
+                {% elif weather_data[2] >= 4000 %}
+                <td>Visibility is moderate: {{ weather_data[2] }} meters</td>
+                {% else %}
+                <td>Visibility is poor: {{ weather_data[2] }} meters</td>
+                {% endif %}
+            </tr>
         {% endif %}
-    {% endif %}
+    </table>
     {% endif %}
 </body>
 </html>
