@@ -1,3 +1,3 @@
-Flask @ file:///croot/flask_1716545870149/work
+Flask
 requests==2.32.3
 
