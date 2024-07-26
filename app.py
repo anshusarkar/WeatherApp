@@ -1,6 +1,9 @@
 import requests
 import os
 from flask import Flask, render_template, request
+from datetime import datetime
+import pytz
+
 
 app = Flask(__name__)
 
@@ -70,8 +73,12 @@ def select_capital():
         if selected_capital != None:
             weather_data = fetch_weather(selected_capital)
             print(weather_data)
-    
-    return render_template('sample.html', capitals=capitals, selected_capital=selected_capital, weather_data=weather_data)
+            
+    current_time = datetime.now(pytz.timezone('Asia/kolkata')).strftime('%Y-%m-%d %H:%M:%S')
+    print(current_time)
+    return render_template('sample.html', capitals=capitals, selected_capital=selected_capital, weather_data=weather_data, current_time=current_time)
+
+
 
 if __name__ == '__main__':
       #app.run(debug=True,host='0.0.0.0', port=10000)

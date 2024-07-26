@@ -34,6 +34,7 @@ if response.status_code == 200:
         wind_speed = data['wind']['speed']
         visibility = data.get('visibility', None)
         print("",city,"\n", country,"\n",weather_description,"\n",temperature,"\n",humidity,"\n",wind_speed,"\n",visibility,"\n")
+        print(data)
 else:
     print(f"Failed to retrieve data: {response.status_code}")
     print(response.text)  # Print the error message returned by the API
