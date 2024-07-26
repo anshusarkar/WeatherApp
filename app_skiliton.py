@@ -7,7 +7,7 @@ import os
 
 # Replace with your actual API key
 
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("API_KEY") # Replace API_KEY with the name of the Environment variable 
 
 # The key is saved in WSL ubuntu under WeatherAPP environment variable 
 

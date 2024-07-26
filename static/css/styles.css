@@ -25,6 +25,13 @@
         transform: scale(1.1);
     }
 }
+/* Optional: Hide elements or change styles for very small screens */
+@media (max-width: 1024px) {
+    /* Specific styles for smaller screens */
+    .some-element {
+        display: none;
+    }
+}
 
 /* Apply animations */
 body {
@@ -42,6 +49,10 @@ body {
     box-sizing: border-box;
     animation: fadeIn 2s ease-in-out;
     position: relative; /* Ensure body can be used as a containing block for absolute positioning */
+    font-size: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1 {

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024">
     <title>Weather APP</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <h1>Weather APP</h1>
     <h2>Based on data from OpenWeatherMap</h2>
-    <h3>Select from the 28 capital cities of India from each states</h3>>
+    <h3>Select from the 28 capital cities of India from each states</h3>
     <form method="POST">
         <label for="capitals">Choose a capital : </label>
         <select id="capitals" name="capitals">
@@ -19,8 +20,11 @@
         </select>
         <button type="submit">Submit</button>
     </form>
-    <h4>Selected capital-city is : {{ weather_data[0] }}</h4>
+
     {% if weather_data %}
+    
+    <h4>Selected capital-city is : {{ weather_data[0] }}</h4>
+    
     <table>
         <tr>
             <th>Country</th>
