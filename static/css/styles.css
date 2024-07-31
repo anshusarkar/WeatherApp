@@ -74,6 +74,7 @@ h2 {
     top: 125px;
     left: 20px;
     animation: slideIn 1s ease-out;
+    opacity: 35%;
 }
 
 h3 {
@@ -84,6 +85,7 @@ h3 {
     top: 145px;
     left: 20px;
     animation: slideIn 1.2s ease-out;
+    opacity: 35%;
 }
 
 h4 {
@@ -118,6 +120,7 @@ label {
     display: flex;
     margin-bottom: 3px;
     font-size: 1.2em;
+    opacity: 25%;
 }
 
 select {
@@ -175,20 +178,34 @@ table {
     width: 100%;
     max-width: 100%;
     border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.8);
+    border-style:none;
+    background-color: rgb(255, 255, 255);
+    opacity: 80%;
     animation: fadeIn 4s ease-in-out;
     position: absolute;
     bottom: 175px;
-}
 
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+    
 }
-
 th {
+    padding: 10px;
+    /* border:  solid #ddd; */
+    text-align: left;
+    border-top-left-radius: 80px 80px;
+    border-bottom-left-radius: 80px 80px;
+}
+
+td {
+    padding: 10px;
+    /* border:  solid #ddd; */
+    text-align: center;
+    border-top-right-radius: 80px 80px;
+    border-bottom-right-radius: 80px 80px;
+}
+
+tr {
     background-color: #f2f2f2;
+    top: 5px;
     font-weight: bold;
 }
 
