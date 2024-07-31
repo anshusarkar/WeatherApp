@@ -25,6 +25,7 @@
         transform: scale(1.1);
     }
 }
+
 /* Optional: Hide elements or change styles for very small screens */
 @media (max-width: 1024px) {
     /* Specific styles for smaller screens */
@@ -42,13 +43,13 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start */
+    align-items: flex-start;
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     animation: fadeIn 2s ease-in-out;
-    position: relative; /* Ensure body can be used as a containing block for absolute positioning */
+    position: relative;
     font-size: 16px;
     width: 100%;
     max-width: 1200px;
@@ -89,7 +90,7 @@ h4 {
     color: #333;
     margin-bottom: 5px;
     font-size: 1.3em;
-    text-align: center; /* Center text inside its container */
+    text-align: center;
     animation: fadeIn 3s ease-out;
 }
 
@@ -97,7 +98,7 @@ p {
     color: #333;
     margin-bottom: 5px;
     font-size: 1.3em;
-    text-align: center; /* Center text inside its container */
+    text-align: center;
     animation: fadeIn 3s ease-out;
 }
 
@@ -105,12 +106,12 @@ form {
     margin-top: 20px;
     width: 100%;
     max-width: 400px;
-    position: absolute; /* Position form absolutely */
-    top: 160px; /* Adjust top position as needed */
-    right: 20px; /* Position form 20px from the right */
+    position: absolute;
+    top: 160px;
+    right: 20px;
     display: flex;
-    align-items: center; /* Align items in the center vertically */
-    gap: 5px; /* Space between select and button */
+    align-items: center;
+    gap: 5px;
 }
 
 label {
@@ -124,32 +125,60 @@ select {
     font-size: 1em;
     box-sizing: border-box;
     animation: fadeIn 2s ease-in-out;
-    flex: 1; /* Allow the select element to take up available space */
+    flex: 1;
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: 1px solid #000000;
     cursor: pointer;
-    padding: 10px;
-    font-size: 1em;
+    padding: 11px;
+    font-size: 0.9em;
     transition: transform 0.2s;
     animation: fadeIn 2s ease-in-out;
+    position: relative; /* Make button a containing block */
+    overflow: hidden; /* Hide stars when not visible */
+    opacity: 40% ;
+
+     
 }
 
 button:hover {
     animation: buttonHover 0.2s forwards;
+    opacity: 100%;
+}
+
+button .stars {
+    display: none; /* Initially hide the stars */
+    position: absolute;
+    font-size: 100px;
+    top: 10%;
+    left: 82.55%;
+    transform: translateX(-50%);
+    font-size: 10px; /* Adjust as needed */
+    color: #ffffff; /* Adjust color as needed */
+    pointer-events: none; /* Prevent interaction */
+    animation:.5s linear;
+    
+    
+}
+
+button:hover .stars {
+    display: block;
+    filter: drop-shadow(0 0 10px #fffdef);
+    animation: fadeIn;
+
 }
 
 table {
     width: 100%;
     max-width: 100%;
     border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.8);
     animation: fadeIn 4s ease-in-out;
-    position: absolute; /* Position table absolutely */
-    bottom: 175px; /* Position table 20px from the bottom of the page */
+    position: absolute;
+    bottom: 175px;
 }
 
 th, td {
