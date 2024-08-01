@@ -36,6 +36,7 @@
 
 /* Apply animations */
 body {
+    background-image: url("../images/background.jpg");
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
@@ -49,11 +50,9 @@ body {
     padding: 20px;
     box-sizing: border-box;
     animation: fadeIn 2s ease-in-out;
-    position: relative;
-    font-size: 16px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    background-size: cover; /* Adjust to your preference */
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 h1 {
@@ -89,7 +88,7 @@ h3 {
 }
 
 h4 {
-    color: #333;
+    color: #ececec;
     margin-bottom: 5px;
     font-size: 1.3em;
     text-align: center;
@@ -97,7 +96,7 @@ h4 {
 }
 
 p {
-    color: #333;
+    color: #ececec;
     margin-bottom: 5px;
     font-size: 1.3em;
     text-align: center;
@@ -138,13 +137,12 @@ button {
     cursor: pointer;
     padding: 11px;
     font-size: 0.9em;
+    opacity: 50% ;
     transition: transform 0.2s;
     animation: fadeIn 2s ease-in-out;
     position: relative; /* Make button a containing block */
+    left: 10px; 
     overflow: hidden; /* Hide stars when not visible */
-    opacity: 40% ;
-
-     
 }
 
 button:hover {
@@ -162,9 +160,7 @@ button .stars {
     font-size: 10px; /* Adjust as needed */
     color: #ffffff; /* Adjust color as needed */
     pointer-events: none; /* Prevent interaction */
-    animation:.5s linear;
-    
-    
+    animation:.5s linear;  
 }
 
 button:hover .stars {
@@ -175,17 +171,16 @@ button:hover .stars {
 }
 
 table {
-    width: 100%;
-    max-width: 100%;
+    width: 50%;
+    max-width: 50%;
     border-collapse: collapse;
     border-style:none;
     background-color: rgb(255, 255, 255);
     opacity: 80%;
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
     position: absolute;
-    bottom: 175px;
-
-    
+    bottom: 175px;   
+    font-family: sans-serif;
 }
 th {
     padding: 10px;
@@ -193,6 +188,7 @@ th {
     text-align: left;
     border-top-left-radius: 80px 80px;
     border-bottom-left-radius: 80px 80px;
+    background-color: rgb(255, 255, 255);;
 }
 
 td {
@@ -201,6 +197,7 @@ td {
     text-align: center;
     border-top-right-radius: 80px 80px;
     border-bottom-right-radius: 80px 80px;
+    background-color: rgb(255, 255, 255);
 }
 
 tr {
@@ -213,6 +210,8 @@ p {
     font-size: 1em;
     margin: 5px 0;
     animation: fadeIn 2s ease-in-out;
+    color: #f2f2f2;
+    opacity: 70%;
 }
 
 @media (max-width: 600px) {
