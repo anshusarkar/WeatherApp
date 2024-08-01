@@ -1,10 +1,12 @@
 /* Define keyframes for animations */
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        /* opacity: 0; */
+        opacity: 100%;
     }
     to {
-        opacity: 1;
+        /* opacity: 1; */
+        opacity: 70%;
     }
 }
 
@@ -34,6 +36,17 @@
     }
 }
 
+@keyframes moveBackground {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
 /* Apply animations */
 body {
     background-image: url("../images/background.jpg");
@@ -53,6 +66,8 @@ body {
     background-size: cover; /* Adjust to your preference */
     background-repeat: no-repeat;
     background-position: center;
+    background-position: 0% 50%;
+    animation: moveBackground 30s infinite linear;
 }
 
 h1 {
@@ -88,7 +103,7 @@ h3 {
 }
 
 h4 {
-    color: #ececec;
+    color: #000000;
     margin-bottom: 5px;
     font-size: 1.3em;
     text-align: center;
@@ -96,7 +111,7 @@ h4 {
 }
 
 p {
-    color: #ececec;
+    color: #000000;
     margin-bottom: 5px;
     font-size: 1.3em;
     text-align: center;
@@ -120,6 +135,7 @@ label {
     margin-bottom: 3px;
     font-size: 1.2em;
     opacity: 25%;
+    animation: fadeIn 2s;
 }
 
 select {
@@ -128,7 +144,10 @@ select {
     box-sizing: border-box;
     animation: fadeIn 2s ease-in-out;
     flex: 1;
+    opacity: 70%;
 }
+
+
 
 button {
     background-color: #000000;
@@ -176,7 +195,7 @@ table {
     border-collapse: collapse;
     border-style:none;
     background-color: rgb(255, 255, 255);
-    opacity: 80%;
+    opacity: 70%;
     animation: fadeIn 2s ease-in-out;
     position: absolute;
     bottom: 175px;   
@@ -188,7 +207,7 @@ th {
     text-align: left;
     border-top-left-radius: 80px 80px;
     border-bottom-left-radius: 80px 80px;
-    background-color: rgb(255, 255, 255);;
+    background-color: rgb(255, 255, 255);
 }
 
 td {
@@ -210,7 +229,7 @@ p {
     font-size: 1em;
     margin: 5px 0;
     animation: fadeIn 2s ease-in-out;
-    color: #f2f2f2;
+    color: #000000;
     opacity: 70%;
 }
 
