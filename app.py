@@ -7,10 +7,8 @@ import pytz
 
 app = Flask(__name__)
 
-# Load the API key from environment variables
 api_key = os.getenv("API_KEY")
 
-# List of Indian states and their capitals
 indian_states_and_capitals = {
     'Andhra Pradesh': 'Amaravati',
     'Arunachal Pradesh': 'Itanagar',
@@ -81,6 +79,5 @@ def select_capital():
 
 
 if __name__ == '__main__':
-      #app.run(debug=True,host='0.0.0.0', port=10000)
       
       app.run(host='0.0.0.0', port=10000)
