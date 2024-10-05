@@ -3,7 +3,9 @@ import os
 from flask import Flask, render_template, request
 from datetime import datetime
 import pytz
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -37,7 +39,7 @@ indian_states_and_capitals = {
     'Tripura': 'Agartala',
     'Uttar Pradesh': 'Lucknow',
     'Uttarakhand': 'Dehradun',
-    'West Bengal': 'Kolkata'
+    'West Bengal': 'Kolkata',
 }
 
 capitals = list(indian_states_and_capitals.values())
