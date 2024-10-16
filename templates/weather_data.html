@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Weather Data for Indian States</h1>
+    
+    <form method="POST">
+        <label for="state">Select a State:</label>
+        <select id="state" name="state">
+            <option value="">--Select State--</option>
+            {% for state in states %}
+            <option value="{{ state }}" {% if selected_state == state %}selected{% endif %}>{{ state }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if selected_state %}
+    <h2>Weather Data for {{ selected_state }}</h2>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Country</th>
+            <th>Description</th>
+            <th>Temperature (°C)</th>
+            <th>Humidity (%)</th>
+            <th>Wind Speed (m/s)</th>
+            <th>Visibility (m)</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for record in all_weather_data[selected_state] %}
+        <tr>
+            <td>{{ record.city }}</td>
+            <td>{{ record.country }}</td>
+            <td>{{ record.description }}</td>
+            <td>{{ record.temperature }}</td>
+            <td>{{ record.humidity }}</td>
+            <td>{{ record.wind_speed }}</td>
+            <td>{{ record.visibility if record.visibility is not none else 'N/A' }}</td>
+            <td>{{ record.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Please select a state to view the weather data.</p>
+    {% endif %}
+</body>
+</html>

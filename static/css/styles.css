@@ -104,6 +104,14 @@ h4 {
     animation: fadeIn 3s ease-out;
 }
 
+h5 {
+    color: #000000;
+    margin-bottom: 5px;
+    font-size: 1.3em;
+    text-align: center;
+    animation: fadeIn 3s ease-out;
+}
+
 p {
     color: #000000;
     margin-bottom: 5px;

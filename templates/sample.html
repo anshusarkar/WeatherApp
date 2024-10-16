@@ -10,23 +10,23 @@
 <body>
     <h1>Weather APP</h1>
     <h2>Based on data from OpenWeatherMap</h2>
-    <h3>Select from the 28 capital cities of India from each states</h3>
+    <h3>Select from the 28 capital cities of India from each state</h3>
+    
+    <!-- Form to select the capital city -->
     <form method="POST">
-        <label for="capitals">Choose a capital : </label>
+        <label for="capitals">Choose a capital: </label>
         <select id="capitals" name="capitals">
             {% for capital in capitals %}
             <option value="{{ capital }}" {% if selected_capital == capital %}selected{% endif %}>{{ capital }}</option>
             {% endfor %}
         </select>
-        <button type="submit" class="glow-button">Submit<span class="stars">✦</span>
-        </button>
+        <button type="submit" class="glow-button">Submit<span class="stars">✦</span></button>
     </form>
 
+    <!-- Displaying current weather data -->
     {% if weather_data %}
-    
-    <h4>Selected capital-city is : {{ weather_data[0] }}</h4>
-
-    <p>The data is fetched on : {{ current_time }} following the IST (UTC+5:30) </p>
+    <h4>Selected capital-city is: {{ weather_data[0] }}</h4>
+    <p>The data is fetched on: {{ current_time }} following the IST (UTC+5:30)</p>
     
     <table>
         <tr>
@@ -63,5 +63,9 @@
         {% endif %}
     </table>
     {% endif %}
+
+    <!-- Link to view historical weather data -->
+    <hr>
+    <h5><a href="/weather_data">View Historical Weather Data</a></h5>
 </body>
 </html>
