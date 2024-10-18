@@ -22,32 +22,38 @@
 
     {% if selected_state %}
     <h2>Weather Data for {{ selected_state }}</h2>
-    <table>
-        <tr>
-            <th>City</th>
-            <th>Country</th>
-            <th>Description</th>
-            <th>Temperature (°C)</th>
-            <th>Humidity (%)</th>
-            <th>Wind Speed (m/s)</th>
-            <th>Visibility (m)</th>
-            <th>Timestamp</th>
-        </tr>
-        {% for record in all_weather_data[selected_state] %}
-        <tr>
-            <td>{{ record.city }}</td>
-            <td>{{ record.country }}</td>
-            <td>{{ record.description }}</td>
-            <td>{{ record.temperature }}</td>
-            <td>{{ record.humidity }}</td>
-            <td>{{ record.wind_speed }}</td>
-            <td>{{ record.visibility if record.visibility is not none else 'N/A' }}</td>
-            <td>{{ record.timestamp }}</td>
-        </tr>
-        {% endfor %}
+    <table id="weatherTable" class="display">
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Description</th>
+                    <th>Temperature (°C)</th>
+                    <th>Humidity (%)</th>
+                    <th>Wind Speed (m/s)</th>
+                    <th>Visibility (m)</th>
+                    <th>Timestamp</th>
+                </tr>
+                {% for record in all_weather_data[selected_state] %}
+                <tr>
+                    <td>{{ record.city }}</td>
+                    <td>{{ record.country }}</td>
+                    <td>{{ record.description }}</td>
+                    <td>{{ record.temperature }}</td>
+                    <td>{{ record.humidity }}</td>
+                    <td>{{ record.wind_speed }}</td>
+                    <td>{{ record.visibility if record.visibility is not none else 'N/A' }}</td>
+                    <td>{{ record.timestamp }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
     </table>
     {% else %}
-    <p>Please select a state to view the weather data.</p>
+    <h3>Please select a state to view the weather data.</h3>
     {% endif %}
+    <h6><a href="/">Go back</a></h6>
 </body>
 </html>

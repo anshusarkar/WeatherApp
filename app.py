@@ -143,6 +143,8 @@ scheduler = BackgroundScheduler()
 scheduler.add_job(fetch_and_store_weather_data, 'interval', days=7)  # Fetch every week
 scheduler.start()
 
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Create the database tables

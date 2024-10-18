@@ -106,22 +106,23 @@ h4 {
 
 h5 {
     color: #000000;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     font-size: 1.3em;
     text-align: center;
     animation: fadeIn 3s ease-out;
-}
-.container {
-    position: relative; /* Make the container relative */
-    height: 100vh; /* Adjust height as necessary */
-    width: 100%; /* Adjust width as necessary */
-}
-.link {
-    position: absolute; /* Position the link absolutely within the container */
-    bottom: 20px; /* Adjust the distance from the bottom */
-    right: 20px; /* Adjust the distance from the right */
-}
+    top: 1000px ;
 
+}
+h6 {
+    color: #000000;
+    margin-bottom: 1px;
+    font-size: 1.3em;
+    text-align: center;
+    animation: fadeIn 3s ease-out;
+    top: 1000px ;
+    bottom: 0%;
+
+}
 
 p {
     color: #000000;
@@ -201,25 +202,28 @@ button:hover .stars {
 
 }
 
+
 table {
-    width: 50%;
-    max-width: 50%;
-    border-collapse: collapse;
-    border-style:none;
+    width: auto;  /* Width of the table */
+    height:auto;
+    margin: 10px 50px 20px 0; /* Center the table horizontally */
+    border-collapse: collapse; /* Ensures borders collapse into a single border */
     background-color: rgb(255, 255, 255);
     opacity: 70%;
     animation: fadeIn 2s ease-in-out;
-    position: absolute;
-    bottom: 175px;   
     font-family: sans-serif;
+    top: 10em;
+    overflow-y: auto;  /* Enables vertical scrolling */
+    overflow-x: hidden;
 }
+
 th {
     padding: 10px;
-    
     text-align: left;
     border-top-left-radius: 80px 80px;
     border-bottom-left-radius: 80px 80px;
     background-color: rgb(255, 255, 255);
+    
 }
 
 td {
