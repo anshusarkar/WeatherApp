@@ -111,6 +111,17 @@ h5 {
     text-align: center;
     animation: fadeIn 3s ease-out;
 }
+.container {
+    position: relative; /* Make the container relative */
+    height: 100vh; /* Adjust height as necessary */
+    width: 100%; /* Adjust width as necessary */
+}
+.link {
+    position: absolute; /* Position the link absolutely within the container */
+    bottom: 20px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+}
+
 
 p {
     color: #000000;
@@ -148,7 +159,6 @@ select {
     flex: 1;
     opacity: 70%;
 }
-
 
 
 button {
