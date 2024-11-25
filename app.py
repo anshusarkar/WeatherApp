@@ -108,7 +108,7 @@ def select_capital():
             if weather_data[0]:  # If data was fetched successfully
                 # Store weather data in the database
                 new_record = WeatherData(
-                    city=weather_data[0],
+                    city=weather_data[0], 
                     country=weather_data[1],
                     description=weather_data[4],
                     temperature=weather_data[5],
