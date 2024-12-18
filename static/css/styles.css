@@ -69,8 +69,8 @@ h1 {
     margin-bottom: 10px;
     font-size: 4em;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     animation: fadeIn 0.5s ease-out;
 }
 
@@ -79,8 +79,8 @@ h2 {
     margin-bottom: 10px;
     font-size: 0.75em;
     position: absolute;
-    top: 125px;
-    left: 20px;
+    top: 110px;
+    left: 10px;
     animation: slideIn 1s ease-out;
     opacity: 35%;
 }
@@ -90,8 +90,8 @@ h3 {
     margin-bottom: 10px;
     font-size: 0.75em;
     position: absolute;
-    top: 145px;
-    left: 20px;
+    top: 120px;
+    left: 10px;
     animation: slideIn 1.2s ease-out;
     opacity: 35%;
 }
@@ -163,44 +163,36 @@ select {
 
 
 button {
-    background-color: #000000;
-    color: rgb(255, 255, 255);
-    border: 1px solid #000000;
-    cursor: pointer;
-    padding: 11px;
-    font-size: 0.9em;
-    opacity: 50% ;
-    transition: transform 0.2s;
-    animation: fadeIn 2s ease-in-out;
-    position: relative; 
-    left: 10px; 
-    overflow: hidden; 
-}
-
-button:hover {
-    animation: buttonHover 0.2s forwards;
-    opacity: 100%;
-}
-
-button .stars {
-    display: none; 
-    position: absolute;
-    font-size: 100px;
-    top: 10%;
-    left: 82.55%;
-    transform: translateX(-50%);
-    font-size: 10px;
-    color: #ffffff; 
-    pointer-events: none; 
-    animation:.5s linear;  
-}
-
-button:hover .stars {
-    display: block;
-    filter: drop-shadow(0 0 10px #fffdef);
-    animation: fadeIn;
-
-}
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+   }
+   
+   button:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+   }
+   
+   @keyframes pulse512 {
+    0% {
+     box-shadow: 0 0 0 0 #05bada66;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
 
 
 table {
