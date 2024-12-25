@@ -16,13 +16,16 @@
     
     <!-- Form to select the capital city -->
     <form method="POST">
-        <label for="capitals">Choose a capital: </label>
+        <label for="capitals">Choose capital: </label>
         <select id="capitals" name="capitals">
             {% for capital in capitals %}
             <option value="{{ capital }}" {% if selected_capital == capital %}selected{% endif %}>{{ capital }}</option>
             {% endfor %}
         </select>
-        <button type="submit" class="glow-button">Submit<span class="stars">✦</span></button>
+        <button>
+            <span class="button_top">Submit</span>
+          </button>
+          
     </form>
 
     <!-- Displaying current weather data -->
