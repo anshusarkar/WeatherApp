@@ -12,9 +12,9 @@
     <h1>Weather Data for Indian States</h1>
     
     <form method="POST">
-        <label for="state">Select a State:</label>
+        <label for="state">Select a state:</label>
         <select id="state" name="state">
-            <option value="">--Select State--</option>
+            <option value="">  Select state  </option>
             {% for state in states %}
             <option value="{{ state }}" {% if selected_state == state %}selected{% endif %}>{{ state }}</option>
             {% endfor %}

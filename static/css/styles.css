@@ -202,36 +202,28 @@ button {
   
   
 
+  .table-container {
+    max-height: 300px; /* Limit the height of the table container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional border for clarity */
+}
 
 table {
-    width: auto;  /* Width of the table */
-    height:auto;
-    margin: 10px 50px 20px 0; /* Center the table horizontally */
-    border-collapse: collapse; /* Ensures borders collapse into a single border */
-    background-color: #e8e8e8 ;
-    opacity: 70%;
-    animation: fadeIn 2s ease-in-out;
-    font-family: sans-serif;
-    top: 10em;
-    overflow-y: auto;  /* Enables vertical scrolling */
-    overflow-x: hidden;
+    width: 100%; /* Make the table take the full width of the container */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddd; /* Add borders to table cells */
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word; /* Prevent content overflow */
 }
 
 th {
-    padding: 10px;
-    text-align: left;
-    border-top-left-radius: 80px 80px;
-    border-bottom-left-radius: 80px 80px;
-    background-color: #e8e8e8;
-    
-}
-
-td {
-    padding: 10px;
-    text-align: center;
-    border-top-right-radius: 80px 80px;
-    border-bottom-right-radius: 80px 80px;
-    background-color: #e8e8e8;
+    background-color: #f4f4f4; /* Add a background color to header cells */
+    position: sticky; /* Make the header stick when scrolling */
+    top: 0;
 }
 
 tr {
