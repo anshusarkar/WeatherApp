@@ -18,7 +18,7 @@ conda activate "Environment-name" (Without quotes)
 
 In the code (API_KEY) is the name of the environment variable .. change it accordingly to the key name that would be given 
 
-I meant that it in place of API_KEY there should be Environment-name .
+
 
 then print the key using os module
 
