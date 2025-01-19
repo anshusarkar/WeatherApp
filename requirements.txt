@@ -3,4 +3,3 @@ requests==2.32.3
 pytz
 Flask-SQLAlchemy
 APScheduler
-pysqlite3
