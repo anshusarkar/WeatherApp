@@ -1,12 +1,10 @@
-<!-- templates/current_location_weather.html -->
 {% extends "sample.html" %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Current Location Weather</title>
-</head>
-<body>
+
+{% block title %}Current Location Weather{% endblock %}
+
+{% block capital_form %}{% endblock %} {# This overrides and hides the form #}
+
+{% block content %}
     <h2>Weather Info for {{ city_name }}</h2>
     <p><strong>Time:</strong> {{ current_time }}</p>
     <ul>
@@ -17,5 +15,4 @@
         <li>Visibility: {{ weather_data[2] }}</li>
     </ul>
     <a href="{{ url_for('select_capital') }}">Back</a>
-</body>
-</html>
+{% endblock %}
