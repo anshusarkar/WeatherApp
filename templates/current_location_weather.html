@@ -1,0 +1,21 @@
+<!-- templates/current_location_weather.html -->
+{% extends "sample.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Location Weather</title>
+</head>
+<body>
+    <h2>Weather Info for {{ city_name }}</h2>
+    <p><strong>Time:</strong> {{ current_time }}</p>
+    <ul>
+        <li>Description: {{ weather_data[4] }}</li>
+        <li>Temperature: {{ weather_data[5] }} °C</li>
+        <li>Humidity: {{ weather_data[6] }}%</li>
+        <li>Wind Speed: {{ weather_data[3] }} m/s</li>
+        <li>Visibility: {{ weather_data[2] }}</li>
+    </ul>
+    <a href="{{ url_for('select_capital') }}">Back</a>
+</body>
+</html>

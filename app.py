@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pytz
 from apscheduler.schedulers.background import BackgroundScheduler  # Import the scheduler
+import geocoder
 
 app = Flask(__name__)
 
@@ -137,6 +138,20 @@ def weather_data():
         all_weather_data[state] = weather_records
 
     return render_template('weather_data.html', all_weather_data=all_weather_data, selected_state=selected_state, states=list(indian_states_and_capitals.keys()))
+
+@app.route('/current_location_weather')
+def current_location_weather():
+    # Get user location using IP
+    g = geocoder.ip('me')
+    city = g.city
+
+    if city:
+        weather_data = fetch_weather(city)
+    else:
+        weather_data = None
+
+    return render_template('current_location_weather.html', weather_data=weather_data)
+
 
 # Setting up the scheduler
 scheduler = BackgroundScheduler()
